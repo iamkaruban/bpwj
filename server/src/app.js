@@ -29,7 +29,7 @@ app.use(session({
   secret: authConfig.sessionSecret,
   resave: false,
   saveUninitialized: true,
-  cookie: {secure: true}
+  cookie: {secure: true},
 }));
 
 // add passport.js

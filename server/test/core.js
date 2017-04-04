@@ -8,6 +8,7 @@ export default (test) => {
   test('GET /', (t) => {
     request(app)
       .get('/')
+      .set('x-access-token', app.get('token'))
       .expect(200)
       .expect('Content-Type', /text\/html/)
       .end((err, res) => {
@@ -28,7 +29,6 @@ export default (test) => {
       .end((err, res) => {
         const expectedBody = '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /GETShouldFailOnRandomURL</pre>\n</body>\n</html>\n';
         const actualBody = res.text;
-        console.log(res);
 
         t.error(err, 'No error');
         t.equal(actualBody, expectedBody, 'Retrieve body');

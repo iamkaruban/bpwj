@@ -8,7 +8,6 @@ export default (test) => {
   test('GET /', (t) => {
     request(app)
       .get('/')
-      .set('x-access-token', app.get('token'))
       .expect(200)
       .expect('Content-Type', /text\/html/)
       .end((err, res) => {

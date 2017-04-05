@@ -34,4 +34,4 @@ export default (test) => {
         t.end();
       });
   });
-}
+};
